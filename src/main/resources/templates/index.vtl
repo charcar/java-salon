@@ -1,0 +1,27 @@
+index.vtl
+
+<h1>Chuck's Shears</h1>
+<h4>whether you're a sheep or a shepherd we'll shear ya</h4><hr>
+
+#if($stylists)
+  <p>Click on a stylist to see their clients:</p>
+  <ul>
+    #foreach($stylist in $stylists)
+      <li><h3>$stylist.getName()</a></h3>
+      </li>
+    #end
+  </ul>
+#else
+  <p>you need to hire some stylists</p>
+#end
+
+
+
+<h3>add a stylist</h3>
+<form action="/success" method="post">
+  <div class="form-group">
+    <label for="name">Stylist Name</label>
+    <input id="name" name="name" type="text" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-info">add stylist</button>
+</form>
