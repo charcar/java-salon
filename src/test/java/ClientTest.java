@@ -1,5 +1,6 @@
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.time.LocalDateTime;
 
 public class ClientTest {
 
@@ -16,6 +17,21 @@ public class ClientTest {
     Client firstClient = new Client("Sam", 1);
     Client secondClient = new Client("Sam", 1);
     assertTrue(firstClient.equals(secondClient));
+  }
+
+  @Test
+  public void save_returnsTrueIfClientNamesAreTheSame() {
+    Client myClient = new Client("Sam", 1);
+    myClient.save();
+    assertTrue((Client.all().get(0).getClientName()).equals(myClient.getClientName()));
+  }
+
+  @Test
+  public void save_assignsStylistIdToObject() {
+    Client myClient = new Client("Same", 1);
+    myClient.save();
+    Client savedClient = Client.all().get(0);
+    assertEquals(myClient.getStylistId(), savedClient.getStylistId());
   }
 
 

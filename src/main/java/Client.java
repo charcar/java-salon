@@ -43,6 +43,17 @@ public boolean equals(Object otherClient) {
   }
 }
 
+public void save() {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "INSERT INTO clients (clientName, stylistId) VALUES (:clientName, :stylistId)";
+    this.id = (int) con.createQuery(sql, true)
+      .addParameter("clientName", this.clientName)
+      .addParameter("stylistId", this.stylistId)
+      .executeUpdate()
+      .getKey();
+  }
+}
+
 
 
 }
