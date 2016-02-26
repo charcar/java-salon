@@ -28,10 +28,18 @@ public class ClientTest {
 
   @Test
   public void save_assignsStylistIdToObject() {
-    Client myClient = new Client("Same", 1);
+    Client myClient = new Client("Brenda", 1);
     myClient.save();
     Client savedClient = Client.all().get(0);
     assertEquals(myClient.getStylistId(), savedClient.getStylistId());
+  }
+
+  @Test
+  public void find_findsClientInDatabase_true() {
+    Client myClient = new Client("Lucifer", 1);
+    myClient.save();
+    Client savedClient = Client.find(myClient.getId());
+    assertTrue(myClient.equals(savedClient));
   }
 
 
