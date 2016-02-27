@@ -1,7 +1,7 @@
 import org.fluentlenium.adapter.FluentTest;
-import org.junit.ClassRule;
-import org.junit.Rule;
-import org.junit.Test;
+
+import org.junit.*;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,6 +41,15 @@ public class AppTest extends FluentTest {
     newStylist.save();
     goTo("http://localhost:4567/");
     assertThat(pageSource()).contains("grendel");
+  }
+
+  @Test
+  public void navigatesToClientsForStylist() {
+    Stylist newStylist = new Stylist("Footpaste");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+    goTo(stylistPath);
+    assertThat(pageSource()).contains("Footpaste");
   }
   // @Test
   // public void isALeapYear() {

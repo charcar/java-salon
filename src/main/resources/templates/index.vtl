@@ -7,7 +7,7 @@ index.vtl
   <p>Click on a stylist to see their clients:</p>
   <ul>
     #foreach($stylist in $stylists)
-      <li><h3>$stylist.getName()</a></h3>
+      <li><h3><a href="/stylists/$stylist.getId()">$stylist.getName()</a></h3>
       </li>
     #end
   </ul>
