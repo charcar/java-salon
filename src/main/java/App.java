@@ -20,15 +20,22 @@ public class App {
       String stylistName = request.queryParams("name");
       Stylist newStylist = new Stylist(stylistName);
       newStylist.save();
+      String clientName = request.queryParams("clientName");
+      Client newClient = new Client(clientName, getId());
+      newClient.save();
       model.put("stylist", newStylist);
       model.put("template", "templates/success.vtl");
       return new ModelAndView (model, layout);
     }, new VelocityTemplateEngine());
 
+    post("/success/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+    })
+
     get("/stylists/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
 
-    
+      model.put("clients", Client.all());
       model.put("stylist", Stylist.find(Integer.parseInt(request.params(":id"))));
       model.put("template", "templates/clients.vtl");
       return new ModelAndView (model, layout);

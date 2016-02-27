@@ -4,3 +4,27 @@ clients.vtl
 <h4>whether you're a sheep or a shepherd we'll shear ya</h4><hr>
 
 Here are the clients of $stylist.getName()
+
+
+#if($clients)
+  <p>Click on a client to see their profile and update their information:</p>
+  <ul>
+    #foreach($client in $clients)
+      <li><h3><a href="/clients/$client.getId()">$client.getClientName()</a></h3>
+      </li>
+    #end
+  </ul>
+#else
+  <p>you should get some clients for this stylist</p>
+#end
+
+
+
+<h3>add a client</h3>
+<form action="/success/:id" method="post">
+  <div class="form-group">
+    <label for="clientName">Client Name</label>
+    <input id="clientName" name="clientName" type="text" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-info">add client</button>
+</form>
