@@ -9,7 +9,7 @@ Here are the clients of $stylist.getName()
 #if($clients)
   <p>Click on a client to see their profile and update their information:</p>
   <ul>
-    #foreach($client in $clients)
+    #foreach($client in $stylist.getClients())
       <li><h3><a href="/clients/$client.getId()">$client.getClientName()</a></h3>
       </li>
     #end
@@ -21,7 +21,7 @@ Here are the clients of $stylist.getName()
 
 
 <h3>add a client</h3>
-<form action="/success/:id" method="post">
+<form action="/success/$stylist.getId()" method="post">
   <div class="form-group">
     <label for="clientName">Client Name</label>
     <input id="clientName" name="clientName" type="text" class="form-control">
