@@ -1,0 +1,11 @@
+deleted.vtl
+
+<h1>Chuck's Shears</h1>
+<h4>whether you're a sheep or a shepherd we'll shear ya</h4><hr>
+
+#if($stylist)
+  <h3> $stylist.getName() has been deleted. </h3>
+#elseif($client)
+  <h3> $client.getClientName() has been deleted. </h3>
+#end
+<a href="/">return to main page</a>

@@ -11,6 +11,7 @@ Here are the clients of $stylist.getName()
   <ul>
     #foreach($client in $stylist.getClients())
       <li><h3><a href="/clients/$client.getId()">$client.getClientName()</a></h3>
+        <a href="/clients/delete/$client.getId()">delete</a>
       </li>
     #end
   </ul>
