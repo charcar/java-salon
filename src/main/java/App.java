@@ -28,7 +28,6 @@ public class App {
 
     get("/stylists/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      // SHOULD SOMETHING ELSE BE IN HERE..?
       model.put("clients", Client.all());
       model.put("stylist", Stylist.find(Integer.parseInt(request.params(":id"))));
       model.put("template", "templates/clients.vtl");
@@ -42,8 +41,7 @@ public class App {
       Client newClient = new Client(clientName, stylist.getId());
       newClient.save();
       model.put("client", newClient);
-      model.put("stylist", stylist);
-      
+
       model.put("template", "templates/success.vtl");
       return new ModelAndView (model, layout);
     }, new VelocityTemplateEngine());
