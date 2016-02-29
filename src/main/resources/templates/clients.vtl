@@ -10,8 +10,9 @@ Here are the clients of $stylist.getName()
   <p>Click on a client to see their profile and update their information:</p>
   <ul>
     #foreach($client in $stylist.getClients())
-      <li><h3><a href="/clients/$client.getId()">$client.getClientName()</a></h3>
+      <li><h3>$client.getClientName()</h3>
         <a href="/clients/delete/$client.getId()">delete</a>
+        <a href="/client/$client.getId()/update">update</a>
       </li>
     #end
   </ul>

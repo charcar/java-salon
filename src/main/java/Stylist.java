@@ -81,13 +81,14 @@ public class Stylist {
     }
   }
 
-  public void update() {
+  public void update(String updateName) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "UPDATE stylists SET name = :updateName WHERE id = :id";
+      this.name = updateName;
       con.createQuery(sql)
         .addParameter("updateName", updateName)
         .addParameter("id", id)
-        executeUpdate();
+        .executeUpdate();
     }
   }
 

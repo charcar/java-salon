@@ -1,0 +1,11 @@
+updated.vtl
+
+<h1>Chuck's Shears</h1>
+<h4>whether you're a sheep or a shepherd we'll shear ya</h4><hr>
+
+#if($stylist)
+  <h3> Thanks for updating $stylist.getName() </h3>
+#elseif($client)
+  <h3> Thanks for updating $client.getClientName() </h3>
+#end
+<a href="/">return to main page</a>
