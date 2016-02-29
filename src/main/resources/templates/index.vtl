@@ -9,6 +9,7 @@ index.vtl
     #foreach($stylist in $stylists)
       <li><h3><a href="/stylists/$stylist.getId()">$stylist.getName()</a></h3>
         <a href="/stylists/delete/$stylist.getId()">delete</a>
+        <a href="/stylist/$stylist.getId()/update">update</a>
       </li>
     #end
   </ul>

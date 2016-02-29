@@ -1,0 +1,14 @@
+updateStylist.vtl
+
+<h1>Chuck's Shears</h1>
+<h4>whether you're a sheep or a shepherd we'll shear ya</h4><hr>
+
+<h3> Update $stylist.getName()'s information </h3>
+
+<form class="form-group" action="/stylist/$stylist.getId()/updated" method="post">
+  <div class="form-group">
+    <label for="update">update the stylists's name</label>
+    <input id="updatedName" type="text" name="update" class="form-control">
+    <button type="submit" class="btn btn-default" id="updateBtn">update</button>
+  </div>
+</form>
