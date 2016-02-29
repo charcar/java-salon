@@ -51,6 +51,14 @@ public class AppTest extends FluentTest {
     goTo(stylistPath);
     assertThat(pageSource()).contains("Footpaste");
   }
-
-
+// HOW DO I CLICK ON AN ANCHOR?
+  // @Test
+  // public void deleteStylist() {
+  //   Stylist myStylist = new Stylist("Bonk");
+  //   myStylist.save();
+  //   goTo("http://localhost:4567/");
+  //   click("delete", withText("delete"));
+  //   goTo("http://localhost:4567/");
+  //   assertThat(!(pageSource()).contains("Bonk"));
+  // }
 }
