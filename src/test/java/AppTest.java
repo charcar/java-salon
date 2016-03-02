@@ -14,6 +14,7 @@ public class AppTest extends FluentTest {
   public WebDriver getDefaultDriver() {
     return webDriver;
   }
+
   @Rule
   public DatabaseRule database = new DatabaseRule();
 
@@ -51,13 +52,13 @@ public class AppTest extends FluentTest {
     goTo(stylistPath);
     assertThat(pageSource()).contains("Footpaste");
   }
-// HOW DO I CLICK ON AN ANCHOR?
+// stale element error, how to rectify?
   // @Test
   // public void deleteStylist() {
   //   Stylist myStylist = new Stylist("Bonk");
   //   myStylist.save();
   //   goTo("http://localhost:4567/");
-  //   click("delete", withText("delete"));
+  //   click("a", withText("delete"));
   //   goTo("http://localhost:4567/");
   //   assertThat(!(pageSource()).contains("Bonk"));
   // }
